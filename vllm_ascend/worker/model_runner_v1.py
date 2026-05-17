@@ -1173,7 +1173,7 @@ class NPUModelRunner(GPUModelRunner):
             # Speculative decoding is not enabled.
             draft_token_ids = None
         else:
-            if self.speculative_config.method in ("suffix", "ngram"):
+            if self.speculative_config.method in ("suffix", "ngram", "sam"):
                 draft_token_ids = self.drafter.generate_token_ids(
                     valid_sampled_token_ids, sampling_metadata,
                     scheduler_output, spec_decode_metadata, positions,
